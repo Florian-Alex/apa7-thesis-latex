@@ -1,0 +1,21 @@
+\section{Methodology}
+\subsection{Tables}
+Tables are vital for any thesis. While \LaTeX\ does not offer the same ease in mocking up tables quickly, the tables turn out much neater and less often destroy your layout than in Word or similar programs. Writing the tables entirely by hand is not recommended, it is much faster and more seamless to use online \LaTeX\ table generation sites. Then just copy the code here and customize.  
+
+Note, that tables in APA7 should use horizontal lines sparingly and avoid vertical lines entirely. The APA7 documentclass numbers the tables automatically and the captions and tablenotes are italized as required. This is what a table in APA7 style can look like:
+
+\begin{table}[h]
+    \caption{Descriptive characteristics of experimental groups on Big5 factors}
+\label{big5}
+    \begin{tabular}{lcc}
+    \hline
+     \textbf{Factor}& \multicolumn{2}{c}{\textit{\textbf{M {[}SD{]}}}} \\ \hline
+     & Group A & Group B \\
+    Agreeableness & 7.13 {[}2.11{]} & 10.95 {[}1.74{]} \\
+    Extraversion & 3.54 {[}0.54{]} & 2.22 {[}4.87{]} \\
+    Openness & 4.33 {[}6.32{]} & 1.64 {[}3.22{]} \\
+    Neuroticism & 2.59 {[}3.99{]} & 5.66 {[}1.16{]} \\
+    Concioussness & 3.88 {[}1.04{]} & 3.32 {[}4.38{]} \\ \hline
+    \end{tabular}
+    \tablenote{Data are made up.}
+    \end{table}

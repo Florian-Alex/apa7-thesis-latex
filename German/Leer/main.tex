@@ -1,0 +1,138 @@
+% ==========================================
+% Dokumentklasse: APA 7. Auflage für Studierende
+% ==========================================
+\documentclass[stu, floatsintext, 12pt, a4paper, donotrepeattitle]{apa7}
+
+% ==========================================
+% Sprache auf Deutsch, deutsche Anführungsstriche
+% ==========================================
+\usepackage[ngerman]{babel}
+\usepackage[%
+left = \glqq,%
+right = \grqq,%
+leftsub = \glq,%
+rightsub = \grq%
+]{dirtytalk}
+
+
+% ==========================================
+% Pakete für Grafiken und Tabellen
+% ==========================================
+\usepackage{graphicx} % Erforderlich für das Einfügen von Bildern
+\usepackage{multirow} % Ermöglicht mehrzeilige Zellen in Tabellen
+\usepackage{svg} % Ermöglicht das Einfügen von SVG-Bildern
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{intersections}
+\usetikzlibrary{patterns}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.18}
+
+% ==========================================
+% Kurzfassung des Titels für die Kopfzeile
+% ==========================================
+\shorttitle{Ihr Kurztitel kommt hier hin}
+
+% ==========================================
+% Benutzerdefinierte Befehle für APA-konforme Statistiken
+% ==========================================
+\newcommand{\acite}[1]{{\citeauthor{#1} (\citeyear{#1})}} % Zitieren mit Autor und Jahr
+\newcommand{\msd}[2]{($M$ = {#1}, $SD$ = {#2})} % Formatierung für Mittelwert und Standardabweichung
+\newcommand{\chitest}[3]{$\chi^2$ (#2) = {#1}, $p$ ${#3}$} % Formatierung für den Chi-Quadrat-Test
+\newcommand{\maineffect}[5]{$F$({#1}, {#2}) = {#3}, $p$ ${#4}$, $\eta^2_p$ = {#5}} % Formatierung für den Haupteffekt in der ANOVA
+\newcommand{\levenes}[4]{$F$({#1}, {#2}) = {#3}, $p$ = {#4}} % Formatierung für den Levene-Test
+\newcommand{\ttest}[4]{$t$({#1}) = {#2}, $p$ ${#3}$, $d$ = {#4}} % Formatierung für den t-Test
+\newcommand{\shapiro}[2]{$W$ = {#1}, $p$ = {#2}} % Formatierung für den Shapiro-Wilk-Test
+
+% ==========================================
+% Formatierung von Abschnitten und Unterabschnitten
+% ==========================================
+\let\paragraph\oldparagraph
+\let\subparagraph\oldsubparagraph
+\usepackage{titlesec, blindtext, color} % Kontrolle über Abschnitts- und Unterabschnittsformatierung
+\titleformat{\subsubsection}[runin]{\bfseries}{\hspace{.5in}\thesubsubsection \ }{0in}{}[]
+\titleformat{\subsection}[block]{\bfseries}{\thesubsection \ }{0in}{}[]
+\titleformat{\section}[block]{\hfil\bfseries}{\thesection \ }{0in}{}[]
+
+% ==========================================
+% Epigraphen und Zitate
+% ==========================================
+\usepackage{epigraph} % Für Zitate am Anfang von Kapiteln/Abschnitten
+\setlength\epigraphwidth{\textwidth} % Lässt Epigraphen über die gesamte Textbreite laufen
+\setlength\epigraphrule{.5pt} % Fügt eine kleine horizontale Linie unter dem Zitat hinzu
+\usepackage{csquotes} % Bietet bessere Kontrolle über Anführungszeichen
+
+% ==========================================
+% Formatierung des Inhaltsverzeichnisses
+% ==========================================
+\setcounter{secnumdepth}{3} % Aktiviert Nummerierung bis zu Unterunterabschnitten
+\usepackage[titles]{tocloft} % Anpassung des Inhaltsverzeichnisses
+\renewcommand{\cftsecfont}{\normalsize} % Vereinheitlicht die Schriftgröße für Abschnitte im Inhaltsverzeichnis
+\renewcommand{\cftsecpagefont}{\normalsize} % Vereinheitlicht die Schriftgröße für Abschnittsseitenzahlen im Inhaltsverzeichnis
+\renewcommand{\cftsecleader}{\cftdotfill{.}} % Fügt Punkte zu Abschnittstiteln im Inhaltsverzeichnis hinzu
+\renewcommand{\cftsubsecleader}{\cftdotfill{.}} % Fügt Punkte zu Unterabschnittstiteln im Inhaltsverzeichnis hinzu
+\renewcommand{\cftsubsubsecleader}{\cftdotfill{.}} % Fügt Punkte zu Unterunterabschnittstiteln im Inhaltsverzeichnis hinzu
+\cftsetindents{section}{0em}{1em}
+\cftsetindents{subsection}{2em}{2em}
+\cftsetindents{subsubsection}{3em}{3em}
+
+% ==========================================
+% Allgemeine Formatierung und Layout
+% ==========================================
+\usepackage{geometry} % Steuert Seitenränder
+\geometry{margin=1in} % Setzt 1-Zoll-Ränder
+\usepackage{makecell} % Ermöglicht dickere Zellränder in Tabellen
+\usepackage[document]{ragged2e} % Rechtfertigt Absätze unter Beibehaltung von Zeilenumbrüchen
+\setlength{\JustifyingParindent}{.5in} % Passt die Absatzeinrückung an
+\usepackage[activate={true,nocompatibility},final,kerning=true,spacing=false,tracking=true]{microtype} % Verbessert die Textverteilung und Silbentrennung
+\microtypecontext{spacing=nonfrench}
+\hypersetup{hidelinks} % Versteckt die Farben von Hyperlinks im Inhaltsverzeichnis
+
+% ==========================================
+% Bibliographie und Referenzen
+% ==========================================
+\usepackage[style=apa, backend=biber]{biblatex} % Verwendet APA-Stil für Referenzen mit Biber
+\addbibresource{references.bib} % Lädt die Bibliographiedatei
+
+% ==========================================
+% Schriftarten und Typografie
+% ==========================================
+%\usepackage{mathptmx} % Verwendet die Schriftart Times New Roman
+\renewcommand{\arraystretch}{1.5} % Passt den Zeilenabstand in Tabellen an
+
+% ==========================================
+% Verschiedene Pakete
+% ==========================================
+\usepackage{lipsum} % Fügt Blindtext für Tests hinzu
+\usepackage{setspace} % Ermöglicht manuelle Anpassung des Zeilenabstands
+\usepackage{amsmath} % Verbessert die mathematische Notation
+
+\begin{document}
+\onehalfspacing
+\justifying
+\input{cover page.tex}
+\include{abstract}
+\newpage
+
+\tableofcontents
+
+\newpage
+\include{theory}
+\include{methods}
+\include{results}
+\include{discussion}
+\newpage
+
+\newpage
+\section{Referenzen}
+\printbibliography[heading=none]
+
+\appendix
+\newpage
+\addcontentsline{toc}{section}{Anhang}
+\input{appendix.tex}
+
+\newpage
+\newpage
+\input{declaration.tex}
+\end{document}

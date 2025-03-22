@@ -1,0 +1,28 @@
+\section{Theoretical Background}
+
+
+
+This APA7 template for \LaTeX\ offers many features that will be demonstrated in this document. Just refer to the \LaTeX\ code to reproduce or modify these features by yourself.
+
+As you have already seen, paragraphs, demarked by an empty line above and below in the source-script, are indented by 0.5in. 
+
+The page is A4 size and the margins are set at 1in. 
+
+\subsection{Formatting headings}
+Headings of different levels can easily be used, numbering is automatic.
+\subsection{Citation and Quotes in APA7-style}
+For citations, the biblatex package is used with the biber backend and apa7 style. To cite a source, first enter the reference in BibTeX format into the references.bib file. For demonstration purposes, we will use two sources. Remember: A reference only appears in the text and in the bibliography, if it is referenced in the text.
+
+\subsubsection{In Text citations in APA7 style}
+To understand how this works, check the corresponding \LaTeX\ code. 
+
+In this sentence, we add a reference in paranthesis after the sentence has ended \parencite{Tversky1974}. 
+
+Here however, we note the contributions of \acite{Einstein1905} to science in the middle of the sentence. Note, that this command is defined only in this template and cannot be used without copying the definition. Tipp: You can click the year of the citation to jump to the bibliography entry. 
+
+\subsubsection{Block quotes}
+In APA7 style, any quote longer than 30 words should be formatted in an intended block
+
+\begin{displayquote}
+    This is such a block quote. Implementing this into you thesis is very easy thanks to \LaTeX. The indentation for these quotes can be changed in the main document's preamble.
+\end{displayquote}

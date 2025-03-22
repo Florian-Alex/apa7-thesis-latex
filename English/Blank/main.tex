@@ -1,0 +1,128 @@
+% ==========================================
+% Document Class: APA 7th Edition for Students
+% ==========================================
+\documentclass[stu, floatsintext, 12pt, a4paper, donotrepeattitle]{apa7}
+
+% ==========================================
+% Packages for Graphics and Tables
+% ==========================================
+\usepackage{graphicx} % Required for inserting images
+\usepackage{multirow} % Allows multi-row cells in tables
+\usepackage{svg} % Allows inclusion of SVG images
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{intersections}
+\usetikzlibrary{patterns}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.18}
+
+
+% ==========================================
+% Short Title for Header
+% ==========================================
+\shorttitle{Your short title goes here}
+
+% ==========================================
+% Custom Commands for APA-style Statistics
+% ==========================================
+\newcommand{\acite}[1]{{\citeauthor{#1} (\citeyear{#1})}} % Cite with author and year
+\newcommand{\msd}[2]{($M$ = {#1}, $SD$ = {#2})} % Mean and Standard Deviation formatting
+\newcommand{\chitest}[3]{$\chi^2$ (#2) = {#1}, $p$ ${#3}$} % Chi-square test formatting
+\newcommand{\maineffect}[5]{$F$({#1}, {#2}) = {#3}, $p$ ${#4}$, $\eta^2_p$ = {#5}} % ANOVA main effect formatting
+\newcommand{\levenes}[4]{$F$({#1}, {#2}) = {#3}, $p$ = {#4}} % Levene's test formatting
+\newcommand{\ttest}[4]{$t$({#1}) = {#2}, $p$ ${#3}$, $d$ = {#4}} % t-test formatting
+\newcommand{\shapiro}[2]{$W$ = {#1}, $p$ = {#2}} % Shapiro-Wilk test formatting
+
+% ==========================================
+% Section and Subsection Formatting
+% ==========================================
+\let\paragraph\oldparagraph
+\let\subparagraph\oldsubparagraph
+\usepackage{titlesec, blindtext, color} % Control section and subsection formatting
+\titleformat{\subsubsection}[runin]{\bfseries}{\hspace{.5in}\thesubsubsection \ }{0in}{}[]
+\titleformat{\subsection}[block]{\bfseries}{\thesubsection \ }{0in}{}[]
+\titleformat{\section}[block]{\hfil\bfseries}{\thesection \ }{0in}{}[]
+
+% ==========================================
+% Epigraphs and Quotes
+% ==========================================
+\usepackage{epigraph} % For quotes at the beginning of chapters/sections
+\setlength\epigraphwidth{\textwidth} % Makes epigraph span full text width
+\setlength\epigraphrule{.5pt} % Sets a small horizontal rule below the quote
+\usepackage{csquotes} % Provides better control over quotation marks
+
+% ==========================================
+% Table of Contents Formatting
+% ==========================================
+\setcounter{secnumdepth}{3} % Enables numbering up to subsubsections
+\usepackage[titles]{tocloft} % Customization of table of contents
+\renewcommand{\cftsecfont}{\normalsize} % Standardizes section font size in ToC
+\renewcommand{\cftsecpagefont}{\normalsize} % Standardizes section page font in ToC
+\renewcommand{\cftsecleader}{\cftdotfill{.}} % Adds dots to section titles in ToC
+\renewcommand{\cftsubsecleader}{\cftdotfill{.}} % Adds dots to subsection titles in ToC
+\renewcommand{\cftsubsubsecleader}{\cftdotfill{.}} % Adds dots to subsubsection titles in ToC
+\cftsetindents{section}{0em}{1em}
+\cftsetindents{subsection}{2em}{2em}
+\cftsetindents{subsubsection}{3em}{3em}
+
+% ==========================================
+% General Formatting and Layout
+% ==========================================
+\usepackage{geometry} % Controls page margins
+\geometry{margin=1in} % Sets 1-inch margins
+\usepackage{makecell} % Allows thick cell borders in tables
+\usepackage[document]{ragged2e} % Justifies paragraphs while keeping line breaks
+\setlength{\JustifyingParindent}{.5in} % Adjusts paragraph indentation
+\usepackage[activate={true,nocompatibility},final,kerning=true,spacing=false,tracking=true]{microtype} % Enhances text spacing and hyphenation
+\microtypecontext{spacing=nonfrench}
+\hypersetup{hidelinks} % Hides hyperlinks' colors in the table of contents
+
+% ==========================================
+% Bibliography and Referencing
+% ==========================================
+\usepackage[style=apa, backend=biber]{biblatex} % Uses APA-style references with Biber
+\addbibresource{references.bib} % Loads the bibliography file
+
+% ==========================================
+% Fonts and Typography
+% ==========================================
+%\usepackage{mathptmx} % Uses Times New Roman font
+\renewcommand{\arraystretch}{1.5} % Adjusts table row spacing
+
+% ==========================================
+% Miscellaneous Packages
+% ==========================================
+\usepackage{lipsum} % Provides placeholder text for testing
+\usepackage{setspace} % Allows manual line spacing adjustments
+\usepackage{amsmath} % Enhances mathematical notation
+
+\begin{document}
+\onehalfspacing
+\justifying
+\input{cover page.tex}
+\include{abstract}
+\newpage
+
+\tableofcontents
+
+\newpage
+\include{theory}
+\include{methods}
+\include{results}
+\include{discussion}
+\newpage
+
+\newpage
+\section{References}
+\printbibliography[heading=none]
+
+\appendix
+\newpage
+\addcontentsline{toc}{section}{Appendix}
+\input{appendix.tex}
+
+
+\newpage
+\newpage
+\input{declaration.tex}
+\end{document}
