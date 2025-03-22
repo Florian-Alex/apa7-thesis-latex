@@ -26,3 +26,6 @@ To compile the document, you need:
   - [TeXworks](https://www.tug.org/texworks/)
   - [Texmaker](https://www.xm1math.net/texmaker/)
 - **Biber** for bibliography compilation
+
+## German Quotations
+For German quotations, please use the ```\say{}``` command from the ```dirtytalk``` package.
